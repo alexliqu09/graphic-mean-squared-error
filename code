@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.datasets import make_regression
+
+p=150
+_x,_y= make_regression(n_samples=p,n_features=1)
+
+x=np.array(_x[:,0])
+y=np.array(_y)
+
+a=len(x)
+x=np.array([(np.ones(a)),x]).T
+
+res=100
+B0=np.linspace(-50,60,res) #particionamos nuestra función en 100 donde esos valores seran utlizados como puntops de nuestra grafica
+B1=np.linspace(-23.5,45,res)
+
+def error(w,z):
+    sum=0
+    for i in range(100):
+        sum+=(w+z*x[i,1] -y[i])**2
+    f=(1/(2*100))*sum
+    return f    
+
+_z=np.zeros((res,res)) ## matriz de ceros
+
+
+for ix,x1 in enumerate(B0):
+    for iy,y1 in enumerate(B1):
+        _z[iy,ix]=error(x1,y1)
+
+print(_z)
+plt.contour(B0,B1,_z)
+plt.colorbar()
+fig = plt.figure()
+ax =    Axes3D(fig)
+X ,Y = np.meshgrid(B0,B1)
+ax.plot_surface(X,Y,_z,rstride=1,cstride=1,cmap='jet')
