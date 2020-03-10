@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Cual es el costo </title>
+</head>
+
+ <body>
+  <p> lo que veras es el costo entre la shonen_JUMP y una light_novel </p>
+
+  <h1>EL Costo </h1>
+
+  <script>
+
+  var opcion=prompt("escoge una occion \n 1 es light_novel ,2  shonen_JUMP");
+  var light_novel=parseInt(prompt("Cual es el costo de la light_novel en yenes "));
+  var shonen_JUMP=parseInt(prompt("Cual es el costo de shonen_JUMP en yenes "));
+  var dolar,soles;
+
+  if(opcion==1)
+  {
+    dolar=light_novel*0.0096;
+    soles=light_novel*0.033;
+    document.write("el costo de la light_novel es :" + light_novel + " <strong>yen</strong>"+"<br/>el precio en dolares es : "+dolar+" <strong>dolares</strong>"+"<br/>el precio en soles es: "+soles+" <strong>soles</strong>");
+  }else{
+    dolar=shonen_JUMP*0.0096;
+    soles=shonen_JUMP*0.033;
+    document.write("el costo de la jump es: " + shonen_JUMP + " <strong>yenes</strong>"+"<br/>el precio en dolares es : "+dolar+" <strong>dolares</strong>"+"<br/>el precio en soles es: "+soles+" <strong>soles</strong>" );
+  }
+
+  </script>
+
+ </body>
+
+
+
+</html>
